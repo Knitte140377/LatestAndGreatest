@@ -10,10 +10,10 @@ void buildNewArray(int *x,int anz, int min, int max);
 
 int main()
 {
-    int anzArrayElemente = 53;
+    int anzArrayElemente = 500;
     int unterGrenze = 300, oberGrenze = 500;
     int min, max;
-    int anzSpalten = 12;
+    int anzSpalten = 20;
     
     int array[anzArrayElemente];
     
@@ -35,7 +35,7 @@ void fillArray(int *x,int anz,int uG,int oG)
     srand(time(NULL));
     for(int i=0;i<anz;i++)
     {
-        x[i]=(rand()%oG-uG+1)+uG;
+        x[i]=(rand()%(oG-uG+1))+uG;
     }
 }
 
@@ -85,7 +85,6 @@ void buildNewArray(int*x, int anz, int min, int max)
             }else{
                 x[i]=max;
             }
-            
         }
 }
 
