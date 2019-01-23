@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void fillArray(int *x,int anz,int uG,int oG);
+void printArray(int *x,int anz,int anzSpalten);
+int getMin(int *x,int anz);
+int getMax(int *x,int anz);
+void buildNewArray(int *x,int anz, int min, int max);
+
+int main()
+{
+    int anzArrayElemente = 53;
+    int unterGrenze = 300, oberGrenze = 500;
+    int min, max;
+    int anzSpalten = 12;
+    
+    int array[anzArrayElemente];
+    
+    fillArray(array,anzArrayElemente,unterGrenze,oberGrenze);
+    printf("Array original:\n");
+    printArray(array,anzArrayElemente,anzSpalten);
+    min = getMin(array,anzArrayElemente);
+    max = getMax(array,anzArrayElemente);
+    buildNewArray(array,anzArrayElemente,min,max);
+    printf("\n\nArray umgestaltet:\n");
+    printArray(array,anzArrayElemente,anzSpalten);
+
+
+    return 0;
+}
+
+void fillArray(int *x,int anz,int uG,int oG)
+{
+    srand(time(NULL));
+    for(int i=0;i<anz;i++)
+    {
+        x[i]=(rand()%201)+300;
+    }
+}
+
+void printArray(int *x,int anz,int anzSpalten)
+{
+    for(int i=0;i<anz;i++)
+    {
+        if(i%anzSpalten==0 && i!=0)
+        {printf("\n");}
+        printf(" %d",x[i]);
+    }
+}
+
+int getMin(int *x,int anz)
+{
+    int min = x[0];
+    for(int i=1;i<anz;i++)
+    {
+        if(min>x[i])
+        {
+        min = x[i];
+        }
+    }
+    return min;
+}
+
+int getMax(int *x,int anz)
+{
+    int max = x[0];
+    for(int i=1;i<anz;i++)
+    {
+        if(max<x[i])
+        {
+        max = x[i];
+        }
+    return max;
+    }
+}
+
+void buildNewArray(int*x, int anz, int min, int max)
+{
+        for(int i=0;i<anz;i++)
+        {
+            if(i%2==0)
+            {
+                x[i]=min;
+            }else{
+                x[i]=max;
+            }
+            
+        }
+}
+
