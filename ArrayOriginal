@@ -71,8 +71,8 @@ int getMax(int *x,int anz)
         {
         max = x[i];
         }
-    return max;
     }
+        return max;
 }
 
 void buildNewArray(int*x, int anz, int min, int max)
